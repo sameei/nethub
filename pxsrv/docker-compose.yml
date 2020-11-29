@@ -1,9 +1,24 @@
-Squid:
-  image: pxsrv
-  ports:
-    - "5000:5000"
-  volumes:
-          # - /srv/docker/proxy-server/cache:/var/spool/squid
-          # - /srv/docker/proxy-server/cert:/etc/stunnel/cert
-          - ./cert:/etc/docker-proxy/cert
-  restart: always
+
+version: "3"
+
+services:
+  squid:
+    image: pxsrv
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./cert:/etc/docker-proxy/cert
+    restart: always
+  
+  squidxnc:
+    image: pxsrv
+    ports:
+      - "6000:5000"
+    volumes:
+      - ./cert:/etc/docker-proxy/cert
+    restart: always
+
+
+ 
+  
+   
